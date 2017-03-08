@@ -70,5 +70,11 @@ PORQUE USAMOS O RASPBERRY PI NA DISCIPLINA AO INVÉS DE OUTRO SYSTEM ON CHIP ?
 	
 	
 
+REFERÊNCIAS
+
+https://www.embarcados.com.br/onde-aprender-sobre-sistemas-embarcados-automotivos/
+https://sites.google.com/site/unipliarquitetdecomputadores/aulas/aula-16---arquitetura-de-sistemas-embarcados
+https://pt.wikibooks.org/wiki/Sistemas_operacionais/Sistemas_embarcados
+
 
 	
