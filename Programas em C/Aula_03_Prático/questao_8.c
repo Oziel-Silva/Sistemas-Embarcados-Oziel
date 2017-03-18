@@ -4,8 +4,8 @@
 #include "num_caracs.h"
 void main(void)
 {
-	char string [100] = "Oziel da silva";
+	char frase [] = "Oziel da Silva Santos";
 
 	
-	printf("Num_Caracs = %d \n",Num_Caracs(string));
+	Num_Caracs(frase);
 }
