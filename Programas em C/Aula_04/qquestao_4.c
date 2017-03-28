@@ -8,6 +8,6 @@ void main(void){
 	printf("Insira o nome do arquivo com a extensão\n");
 	scanf("%s",arq);
 
-	tam_arq_texto(arq);
+	tam_arq_textonom(arq);
 	
 }
