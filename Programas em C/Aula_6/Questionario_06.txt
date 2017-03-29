@@ -1,0 +1,34 @@
+Data: 28/03/2017
+
+1. Como se utiliza o comando 'ps' para:
+	(a) Mostrar todos os processos rodando na máquina?
+		ps aux
+	(b) Mostrar os processos de um usuário?
+		ps -u
+	(c) Ordenar todos os processos de acordo com o uso da CPU?
+
+	(d) Mostrar a quanto tempo cada processo está rodando?
+
+	 	ps -e -o pid,user,etime
+
+2. De onde vem o nome fork()?
+	de criar uma bifurcação
+3. Quais são as vantagens e desvantagens em utilizar:
+	(a) system()?
+	Vantagens: Utilizar comandos do S.O durante o tempo de execução do programa.
+
+	Desvantagem: Não há compatibilidade de alguns argumentos desta função entre sistemas operacionais, ex; linux windows.
+	
+	(b) fork() e exec()?
+
+	Desvantagem : Pode alterar um valor de uma variável em um processo, 
+
+4. É possível utilizar o exec() sem executar o fork() antes?
+	não!
+5. Quais são as características básicas das seguintes funções:
+	(a) execp()? aceitam que o nome ou procura do programa esteja no current path;
+	(b) execv()? aceitam que a lista de arqumentos do novo programa sejam nulos.
+	(c) exece()? aceitam um argumento adicional.
+	(d) execvp()? aceitam que a lista de arqumentos do novo programa sejam nulos. aceitam que o nome ou procura do programa esteja no current path;
+	(e) execve()?  aceitam um argumento adicional. aceitam que a lista de arqumentos do novo programa sejam nulos.
+	(f) execle()? aceitam em sua lista de argumentos a utilização de mecanismos varargs em linguagem C. aceitam um argumento adicional.

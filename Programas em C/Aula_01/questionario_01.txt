@@ -1,0 +1,80 @@
+----------------------------------------TERÇA, 7 DE MARÇO DE 2017-----------------------------------------
+------------------------------------OZIEL DA SILVA SANTOS 12/0131536--------------------------------------
+
+
+
+------------------------------------------QUESTIONÁRIO------------------------------------------------ ----
+
+
+O QUE SÃO SISTEMAS EMBARCADOS?
+	
+	Sistemas embarcados, são sistemas dedicados à um único propósito e são independentes 
+e completos. Geralmente são encapsulados de forma compacta onde o usuário não tem contato.
+
+O QUE SÃO SISTEMAS MICROPROCESSADOS ? 
+
+	São sistemas que contém uma CPU (Central Processing Unit), uma memória de programa, memória
+de dados e periféricos. Geralmente um sistema microprocessado é um sistema embarcado.
+
+APLICAÇÕES DE SISTEMAS EMBARCADOS:
+
+* INDÚSTRIA AUTOMOTIVA;
+
+	Sistemas de navegação e GPS
+	Cotrole de Motor e injeção eletrônica
+	Alarmes
+	Controle de Tração
+	Painel de Instrumentos
+
+* PARA ELETRODOMÉSTICOS 
+
+	Sistema de lavagem de uma máquina
+	Sistema eletrônico de uma impressora
+
+* AUTOMAÇÃO INDÚSTRIAL 
+
+	Sistema de verificação de soldagem de automática de veículos
+	Sistema de caixas eletrônicos 
+
+ARQUITETURA POSSÍVEIS E DIFERENÇAS: 
+
+*MICROCONTROLADOS 
+
+	Microcontrolador é programável e pode acessar uma grande variedade de periféricos.
+Um microcontrolador processa a uma velocidade de relógio menor, tem espaço endereçável 
+de memória menor e seu software não pode ser alterado pelo consumidor. Por isso é um 
+componente adequado para sistemas embarcados com restrições de  memória e velocidade de 
+processamento.
+
+*SoCs 
+
+	Os Sistemas de um chip (SOCs) se distinguem de microcontroladores por sua complexidade 
+e mais recursos no chip. Microcontroladores muitas vezes requerem circuitos de suporte, como 
+processadores de sinal, decodificadores e conversores de sinal. Um sistema em um chip é uma 
+peça única de silício que contém todos os circuitos para fornecer um conjunto de funções, 
+podendo consistir em mais de um   processador.
+
+*PROCESSADORES RECONFIGURÁVEIS
+
+	Algumas aplicações são tão especializadas que nenhum controlador disponível no mercado pode realizar o trabalho. 
+Quando projetistas se deparam com esta situação, eles podem escolher uma dentre duas alternativas: eles 
+podem decidir criar um chip a partir do zero ou eles podem usar um dispositivo lógico programável 
+(PLD –programmable logic device). Assim o dispositivo pode ser configurado via programação de acordo com as necessidades.
+
+PORQUE USAMOS O RASPBERRY PI NA DISCIPLINA AO INVÉS DE OUTRO SYSTEM ON CHIP ?
+
+	Primeiro é a acessibilidade dos alunos ao dispositivo Raspberry Pi
+	segundo é que a Raspberry Pi tem uma grande e ativa comunidade de desenvolvedores.
+	Terceiro é que a maioria dos sistemas embarcados rodam um sistema Unix.
+	
+	
+	
+
+REFERÊNCIAS
+
+https://www.embarcados.com.br/onde-aprender-sobre-sistemas-embarcados-automotivos/
+https://sites.google.com/site/unipliarquitetdecomputadores/aulas/aula-16---arquitetura-de-sistemas-embarcados
+https://pt.wikibooks.org/wiki/Sistemas_operacionais/Sistemas_embarcados
+
+
+	

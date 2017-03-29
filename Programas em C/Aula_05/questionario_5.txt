@@ -1,0 +1,64 @@
+sublData: 23/03/2017
+
+1. Considerando a biblioteca-padrão da linguagem C, responda:
+	(a) Quais são as funções (e seus protótipos) para abrir e fechar arquivos? 
+	RESPOSTA: As funções ultilizadas são fopen e fclose, seus respectivos protótipos são:
+	FILE * fopen(const char *filename, const char *mode)
+	int fclose(FILE *arq)
+
+	(b) Quais são as funções (e seus protótipos) para escrever em arquivos?
+
+	fputc()
+	int fputc (char a, FILE *arq)
+	fprintf()
+	int fprintf(FILE *arq, char string[])
+
+
+	(c) Quais são as funções (e seus protótipos) para ler arquivos?
+	fread()
+	fread(void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream)
+
+	fgetc()
+	int fgetc(FILE *arq)
+
+	fscanf()
+	int fscanf(FILE *arq, char *string_formatada)
+
+	fgets()
+	char *fgets(char *minhaString, int numBytes, FILE *arq)
+
+	(d) Quais são as funções (e seus protótipos) para reposicionar um ponteiro para arquivo?
+	fseek()
+	int fseek(FILE *arq, long salto, int oringem)
+
+	rewind()
+	void rewind (FILE *arq)
+	
+	(e) Quais bibliotecas devem ser incluídas no código para poder utilizar as funções acima?
+	stdio.h
+	
+
+2.  que é a norma POSIX?
+	É uma familia de normas definidas pelo IEEE para manutenção de compatibilidade entre sistemas
+	operacionais, e designada formalmente por IEEE 1003, POSIX define a interface de programação de 
+	aplicações (API) juntamente com shells de linha e comando e interfaces utilitárias, para compatibilidade de software
+	com variantes Unix ee outros sistemas operacionais
+
+3. Considerando a norma POSIX, responda:
+	(a) Quais são as funções (e seus protótipos) para abrir e fechar arquivos?
+	open()
+	int open(const char* path, int oflag,...);
+
+	(b) Quais são as funções (e seus protótipos) para escrever em arquivos?
+	close()
+	int close(int fildes);
+	(c) Quais são as funções (e seus protótipos) para ler arquivos?
+	read()
+	size_t read(int fildes, void *buf, size_t nbyte);	
+	(d) Quais são as funções (e seus protótipos) para reposicionar um ponteiro para arquivo?
+	lseek()
+	off_t lseek(int fd, off_t offset, int whence);
+	
+	(e) Quais bibliotecas devem ser incluídas no código para poder utilizar as funções acima?
+	#include <fcntl.h> , #include<unistd.h> , #include <termios.h>	
+	
