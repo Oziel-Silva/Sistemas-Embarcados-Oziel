@@ -23,24 +23,27 @@ int main(int argc, const char *argv[])
 			pid_t pid_filho2 = fork();
 
 			if (pid_filho2 == 0)
-			{
-				id_atual = getpid();
+			{	
+				pid_t pid_filho3 = fork();
+					if(pid_filho3 == 0)
+					{
+						id_atual = getpid();
+						Incrementa_Variavel_Global(id_atual);
+					}
+					else
+					{
+						id_atual = getpid();
+						Incrementa_Variavel_Global( id_atual);
+					}	
 			
-				Incrementa_Variavel_Global( id_atual);
+				
 			}
-				else
+			else
 				{
 			  		id_atual = getpid();
-			
 					Incrementa_Variavel_Global( id_atual);
 				}	
 		}
-	
-	else
-		{
-			id_atual = getpid();		
-			Incrementa_Variavel_Global( id_atual);
-		}
-		
+
 return 0;
 }
