@@ -20,7 +20,7 @@ int main(int argc, const char *argv[])
 	printf("O pid desse  processo é %d\n",pid_pai );
 	//printf("O  valor da variavel global é %d\n",v_global );
 	//printf("chamando a função que incrementa a variavel...\n");
-
+	Incrementa_Variavel_Global(pid_pai);
 	pid_t pid_filho1 = fork();
 
 	if (pid_filho1 != 0)
@@ -38,8 +38,7 @@ int main(int argc, const char *argv[])
 				Incrementa_Variavel_Global(pid_filho3);
 			}
 		}
+	
 	}
 	
-
-return 0;
 }

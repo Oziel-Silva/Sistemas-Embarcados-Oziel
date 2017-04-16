@@ -5,27 +5,41 @@
 
 int main(int argc, const char *argv[])
 {
-	pid_t pid_filho1 = fork();
+	pid_t pid_filho1;
+	printf("Eu sou o processo pai com ID de %d \n",getpid() );
 
-	
-	if (pid_filho1 == 0)
+	pid_filho1 = fork();
+
+	if(pid_filho1 != 0)
 	{
-		
+		pid_t pid_filho2;
+		printf("Eu sou o filho 1 com ID de %d \n",pid_filho1);
 
-		pid_t pid_filho2 = fork();
+		pid_filho2 = fork();
 
-		if (pid_filho2 == 0)
+		if (pid_filho2 != 0)
 		{
-			printf("Eu sou o filho 2 \n");
+			printf("Eu sou o filho 2 com ID de %d \n",pid_filho2 );
+
+			pid_t pid_filho3 = fork();
+
+			if (pid_filho3 != 0 )
+			{
+				printf("Eu sou o filho 3 com ID de %d \n",pid_filho3 );
+			}
+			else
+			{
+				
+			}
 		}
 		else
-			printf("Eu sou o filho 1 \n");
-			
+		{
 
+		}
+	}
+
+	else
+	{
 
 	}
-	else
-		printf("Eu sou o pai!\n");
-
-return 0;
 }

@@ -2,20 +2,16 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
-int main (char *program, char **arg_list) {
-pid_t child_pid;
-child_pid = fork ();
-if (child_pid != 0)
-return child_pid;
-
-else {
-	execvp (program, *arg_list);
-
-	fprintf (stderr, "an error occurred in execvp\n");
-
+int main (char argc, char *argv[]) {
+	
+	
+pid_t pid = fork();
+	if (pid == 0)
+	{
+		execl(argv[1],argv[2],NULL);
+	}
+      sleep(2);
+      printf("Eu sou o pai e finalmente posso continuar\n");
 }
-
-printf ("done with main program\n");
-return 0;
-
-}
+	
+	
