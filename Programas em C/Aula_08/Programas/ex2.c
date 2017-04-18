@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define TAM 500000000
+#define TAM 50000
 
 
 void valor_maximo(long int *vetor)
