@@ -10,7 +10,7 @@ int main (int argc, char* const argv[])
 {
 	int socket_id;
 	struct sockaddr_in servidorAddr;
-	int length,tamanho;
+	int length;
 	unsigned short servidorPorta;
 	char *IP_Servidor;
 	char *mensagem;
@@ -38,7 +38,6 @@ int main (int argc, char* const argv[])
 	IP_Servidor = argv[1];
 	servidorPorta = atoi(argv[2]);
 	mensagem = argv[3];
-	char msg[] = "ola!!";
 
 	fprintf(stderr, "Abrindo o socket para o cliente... ");
 	socket_id = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -63,26 +62,13 @@ int main (int argc, char* const argv[])
 	fprintf(stderr, "Feito!\n");
 
 	fprintf(stderr, "Mandando mensagem ao servidor... ");
-
-
 	length = strlen(mensagem) + 1;
 	write(socket_id, &length, sizeof(length));
 	write(socket_id, mensagem, length);
-
-	length = strlen(msg) + 1;
-	write(socket_id, &tamanho, sizeof(tamanho));
-	write(socket_id, msg, tamanho);
-
-
-
-	
-
 	fprintf(stderr, "Feito!\n");
 
 	fprintf(stderr, "Fechando o socket local... ");
 	close(socket_id);
 	fprintf(stderr, "Feito!\n");
-	sleep(2);
-
-return 0;
+	return 0;
 }
