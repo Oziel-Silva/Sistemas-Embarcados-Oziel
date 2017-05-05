@@ -108,13 +108,23 @@ void print_client_message(int client_socket)
 	int length;
 	char* text;
 	fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
+
 	read(client_socket, &length, sizeof (length));
 	fprintf(stderr, "%d bytes.", length);
 	text = (char*) malloc (length);
+
 	read(client_socket, text, length);
 	fprintf(stderr,"\n\n   Mensagem = %s\n\n", text);
 	free (text);
-	if (!strcmp (text, "sair"))
+	sleep(1);
+
+	fprintf(stderr, "Mandando mensagem ao cliente... ");
+	length = strlen(a) + 1;
+	write(client_socket, &length, sizeof(length));
+	write(client_socket, a, length);
+	fprintf(stderr, "Feito!\n");
+
+	if (strcmp (text, "sair"))
 	{
 		fprintf(stderr, "Cliente pediu para o servidor fechar.\n");
 		end_server();
