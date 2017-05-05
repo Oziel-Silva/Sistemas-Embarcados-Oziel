@@ -6,6 +6,7 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <sys/un.h>
+#include <signal.h>
 
 int socket_id;
 void sigint_handler(int signum);
@@ -107,6 +108,7 @@ void print_client_message(int client_socket)
 {
 	int length;
 	char* text;
+	char a[]= "resposta servidor";
 	fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
 
 	read(client_socket, &length, sizeof (length));
