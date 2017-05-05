@@ -94,7 +94,7 @@ void print_exemplo()
 void sensores(void)
 { 
 	char *a;
-	int parametro;
+	char parametro;
 	 do
     {
         printf("\n\tSensores\n\n");
@@ -103,27 +103,27 @@ void sensores(void)
         printf("3. cozinha\n");
         printf("0. voltar ao menu anterior\n");
 
-        scanf("%d", &parametro);
+        scanf("%c", &parametro);
         system("clear");
 
         switch(parametro)
         {
-            case 1:
+            case '1':
             	//scanf("%c",a);
             a = "zizi";
                 conexao_server(a);
                 break;
 
-            case 2:
+            case '2':
                 a = "oziel";
                 conexao_server(a);
                 break;
 
-            case 3:
+            case '3':
                 
                 break;
 
-            case 0:
+            case '0':
                 menu1();
                 break;
 
@@ -135,7 +135,7 @@ void sensores(void)
 
 void menu1(void)
 {
-int continuar;
+char parametro;
 
 	//if(argc = 1)
 	//	print_exemplo();
@@ -148,29 +148,29 @@ int continuar;
         printf("0. Sair\n");
 
 
-        scanf("%d", &continuar);
-        system("cls || clear");
+        scanf("%c", &parametro);
+        system("clear");
 
-        switch(continuar)
+        switch(parametro)
         {
-            case 1:
+            case '1':
                 sensores();
                 break;
 
-            case 2:
+            case '2':
                 printf("caso 2/\n");
                 break;
 
-            case 3:
+            case '3':
                 printf("caso 3\n");
                 break;
 
-            case 0:
+            case '0':
                 exit(0);
                 break;
 
             default:
                 printf("Digite uma opcao valida\n");
         }
-    } while(continuar);
+    } while(parametro);
 }

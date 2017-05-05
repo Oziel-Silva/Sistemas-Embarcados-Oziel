@@ -131,7 +131,39 @@ void print_client_message(int client_socket)
 		fprintf(stderr, "Cliente pediu para o servidor fechar.\n");
 		end_server();
 	}
-}
+
+	char *parametro;
+
+		strcpy(parametro,text);
+
+        system("clear");
+
+        switch(parametro)
+        {
+            case "zizi":
+            	//scanf("%c",a);
+            //a = "zizi";
+               // conexao_server(a);
+            printf("oi zente!!\n");
+                break;
+
+            case '2':
+                //a = "oziel";
+                //conexao_server(a);
+                break;
+
+            case '3':
+                
+                break;
+
+            case '0':
+                menu1();
+                break;
+
+            default:
+                printf("Digite uma opcao valida\n");
+        }
+} 
 
 void end_server(void)
 {
