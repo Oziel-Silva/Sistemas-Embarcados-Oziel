@@ -117,7 +117,7 @@ void print_client_message(int client_socket)
 
 	read(client_socket, text, length);
 	fprintf(stderr,"\n\n   Mensagem = %s\n\n", text);
-	free (text);
+	//free (text);
 	sleep(1);
 
 	fprintf(stderr, "Mandando mensagem ao cliente... ");
@@ -131,38 +131,21 @@ void print_client_message(int client_socket)
 		fprintf(stderr, "Cliente pediu para o servidor fechar.\n");
 		end_server();
 	}
-
-	char *parametro;
-
-		strcpy(parametro,text);
-
-        system("clear");
-
-        switch(parametro)
+     
+         system("clear");
+       int param = atoi(text);
+        switch(param)
         {
-            case "zizi":
-            	//scanf("%c",a);
-            //a = "zizi";
-               // conexao_server(a);
-            printf("oi zente!!\n");
+            case 111:
+                printf("oi zente!!\n");
                 break;
-
-            case '2':
-                //a = "oziel";
-                //conexao_server(a);
+            case 112:
+                printf("oi galera!!");
                 break;
-
-            case '3':
-                
-                break;
-
-            case '0':
-                menu1();
-                break;
-
             default:
                 printf("Digite uma opcao valida\n");
         }
+        free(text);
 } 
 
 void end_server(void)
