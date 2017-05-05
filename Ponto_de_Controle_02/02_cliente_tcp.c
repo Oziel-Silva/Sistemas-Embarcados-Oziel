@@ -60,7 +60,7 @@ void conexao_server(char* a)
 	read(socket_id, text, length);
 	fprintf(stderr,"\n\n   Mensagem = %s\n\n", text);
 	free (text);
-	sleep(1);
+	sleep(5);
 
 
 	fprintf(stderr, "Fechando o socket local... ");
