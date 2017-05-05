@@ -56,8 +56,8 @@ void conexao_server(char* a)
 	sleep(1);
 
 	text = (char*) malloc (length);
-
-	read(client_socket, text, length);
+	read(socket_id, &length, sizeof (length));
+	read(socket_id, text, length);
 	fprintf(stderr,"\n\n   Mensagem = %s\n\n", text);
 	free (text);
 	sleep(1);

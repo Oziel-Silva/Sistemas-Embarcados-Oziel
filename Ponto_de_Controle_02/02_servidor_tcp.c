@@ -126,7 +126,7 @@ void print_client_message(int client_socket)
 	write(client_socket, a, length);
 	fprintf(stderr, "Feito!\n");
 
-	if (strcmp (text, "sair"))
+	if (!strcmp (text, "sair"))
 	{
 		fprintf(stderr, "Cliente pediu para o servidor fechar.\n");
 		end_server();
