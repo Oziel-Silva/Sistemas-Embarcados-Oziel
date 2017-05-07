@@ -6,10 +6,10 @@
 #include <sys/un.h>
 #include <unistd.h>
 
-	void conexao_server(char* a);
+	void chama_opcao(char* opcao);
 	void print_exemplo(void);
 	void sensores(void);
-	void menu1(void);
+	void menu(void);
 
 	char IP_Servidor[] = "192.168.25.25";
 	int socket_id;
@@ -21,22 +21,22 @@
 
 int main (int argc, char* const argv[])
 {
-	menu1();
+	menu();
 	return 0;
 }
 
-void conexao_server(char* a)
+void chama_opcao(char* a)
 { char* text;
-//	printf(stderr, "Abrindo o socket para o cliente... ");
+	//fprintf(stderr, "Abrindo o socket para o cliente... ");
 	socket_id = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if(socket_id < 0)
 	{
 		fprintf(stderr, "Erro na criacao do socket!\n");
 		exit(0);
 	}
-	fprintf(stderr, "Feito!\n");
+	//fprintf(stderr, "Feito!\n");
 
-	fprintf(stderr, "Conectando o socket ao IP %s pela porta %d... ", IP_Servidor, servidorPorta);
+	//fprintf(stderr, "Conectando o socket ao IP %s pela porta %d... ", IP_Servidor, servidorPorta);
 	memset(&servidorAddr, 0, sizeof(servidorAddr)); // Zerando a estrutura de dados
 	servidorAddr.sin_family = AF_INET;
 	servidorAddr.sin_addr.s_addr = inet_addr(IP_Servidor);
@@ -46,21 +46,21 @@ void conexao_server(char* a)
 		fprintf(stderr, "Erro na conexao!\n");
 		exit(0);
 	}
-	fprintf(stderr, "Feito!\n");
+	//fprintf(stderr, "Feito!\n");
 
-	fprintf(stderr, "Mandando mensagem ao servidor... ");
+	fprintf(stderr, "Por favor aguarde...\n ");
 	length = strlen(a) + 1;
 	write(socket_id, &length, sizeof(length));
 	write(socket_id, a, length);
-	fprintf(stderr, "Feito!\n");
-	sleep(1);
+	//fprintf(stderr, "Feito!\n");
+	//sleep(1);
 
 	text = (char*) malloc (length);
 	read(socket_id, &length, sizeof (length));
 	read(socket_id, text, length);
-	fprintf(stderr,"\n\n   Mensagem = %s\n\n", text);
+	fprintf(stderr,"\n\n   Temperatura do ambiente é de: %s °C\n\n", text);
 	free (text);
-	sleep(5);
+	sleep(3);
 
 
 	fprintf(stderr, "Fechando o socket local... ");
@@ -91,55 +91,12 @@ void print_exemplo()
 		exit(1);
 }
 
-void sensores(void)
-{ 
-	char *a;
-	char parametro;
-	 do
-    {
-        printf("\n\tSensores\n\n");
-        printf("1. sala\n");
-        printf("2. quarto\n");
-        printf("3. cozinha\n");
-        printf("0. voltar ao menu anterior\n");
 
-        scanf("%c", &parametro);
-        system("clear");
 
-        switch(parametro)
-        {
-            case '1':
-            	//scanf("%c",a);
-            a = "zizi";
-                conexao_server(a);
-                break;
-
-            case '2':
-                a = "oziel";
-                conexao_server(a);
-                break;
-
-            case '3':
-                
-                break;
-
-            case '0':
-                menu1();
-                break;
-
-            default:
-                printf("Digite uma opcao valida\n");
-        }
-    } while(parametro);
-}
-
-void menu1(void)
+void menu(void)
 {
 char parametro;
-
-	//if(argc = 1)
-	//	print_exemplo();
-	 do
+ do
     {
         printf("\n\t Menu de Opções\n\n");
         printf("1. Sensores\n");
@@ -167,6 +124,49 @@ char parametro;
 
             case '0':
                 exit(0);
+                break;
+
+            default:
+                printf("Digite uma opcao valida\n");
+        }
+    } while(parametro);
+}
+
+
+void sensores(void)
+{ 
+	char *opcao;
+	char parametro;
+	 do
+    {
+        printf("\n\tSensores\n\n");
+        printf("1. sala\n");
+        printf("2. quarto\n");
+        printf("3. cozinha\n");
+        printf("0. voltar ao menu anterior\n");
+
+        scanf("%c", &parametro);
+        system("clear");
+
+        switch(parametro)
+        {
+            case '1':
+            	opcao = "1";
+                chama_opcao(opcao);
+                break;
+
+            case '2':
+                opcao = "2";
+                chama_opcao(opcao);
+                break;
+
+            case '3':
+            	opcao = "3";
+                chama_opcao(opcao);                
+                break;
+
+            case '0':
+                menu();
                 break;
 
             default:
