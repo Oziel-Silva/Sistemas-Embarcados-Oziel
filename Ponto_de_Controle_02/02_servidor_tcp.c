@@ -7,6 +7,8 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <signal.h>
+#include <wiringPi.h>
+#include <mcp3004.h>
 
 int socket_id;
 void sigint_handler(int signum);
@@ -105,10 +107,14 @@ void sigint_handler(int signum)
 }
 
 void print_client_message(int client_socket)
-{
+{	wiringPiSetup() ;
+	mcp3004Setup(100, 0);
 	int length;
 	char* text;
-	char a[]= "resposta servidor";
+	int a = analogRead(100+1);
+
+	char *b;
+            b = (char*) a;
 	fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
 
 	read(client_socket, &length, sizeof (length));
@@ -121,9 +127,9 @@ void print_client_message(int client_socket)
 	sleep(1);
 
 	fprintf(stderr, "Mandando mensagem ao cliente... ");
-	length = strlen(a) + 1;
+	length = strlen(b) + 1;
 	write(client_socket, &length, sizeof(length));
-	write(client_socket, a, length);
+	write(client_socket, b, length);
 	fprintf(stderr, "Feito!\n");
 
 	if (!strcmp (text, "sair"))
