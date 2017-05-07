@@ -19,7 +19,8 @@ int main (int argc, char* const argv[])
 {
 	unsigned short servidorPorta;
 	struct sockaddr_in servidorAddr;
-
+    wiringPiSetup() ;
+    mcp3004Setup(100, 0);
 	if (argc < 2)
 	{
 		puts("   Este programa cria um servidor TCP/IP ");
@@ -107,15 +108,15 @@ void sigint_handler(int signum)
 }
 
 void print_client_message(int client_socket)
-{	wiringPiSetup() ;
-	mcp3004Setup(100, 0);
+{	
+	
 	int length;
 	char* text;
-	int a = analogRead(100+1);
+	char buffer[5];
+    int valor =analogRead(100+0);
 
-	char *b;
-            b = (char*) a;
-	fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
+	//char *b;
+ 	fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
 
 	read(client_socket, &length, sizeof (length));
 	fprintf(stderr, "%d bytes.", length);
@@ -127,9 +128,14 @@ void print_client_message(int client_socket)
 	sleep(1);
 
 	fprintf(stderr, "Mandando mensagem ao cliente... ");
-	length = strlen(b) + 1;
+
+    snprintf(buffer,5, "%d",valor);
+	printf("valor do sensor: %s",buffer);
+    sleep(2);
+
+    length = strlen(buffer) + 1;
 	write(client_socket, &length, sizeof(length));
-	write(client_socket, b, length);
+	write(client_socket, buffer, length);
 	fprintf(stderr, "Feito!\n");
 
 	if (!strcmp (text, "sair"))
