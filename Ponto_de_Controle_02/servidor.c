@@ -93,7 +93,9 @@ int main (int argc, char* const argv[])
 		fprintf(stderr, "Conexão do Cliente %s\n", inet_ntoa(clienteAddr.sin_addr));
 		
 		fprintf(stderr, "Tratando comunicacao com o cliente... ");
-		print_client_message(socketCliente);
+
+		menu(socketCliente);
+
 		fprintf(stderr, "Feito!\n");
 
 		fprintf(stderr, "Fechando a conexao com o cliente... ");
@@ -103,13 +105,9 @@ int main (int argc, char* const argv[])
 	return 0;
 }
 
-void sigint_handler(int signum)
-{
-	fprintf(stderr, "\nRecebido o sinal CTRL+C... vamos desligar o servidor!\n");
-	end_server();
-}
 
-void print_client_message(int client_socket)
+
+void menu(int client_socket)
 {	
     int n_socket = client_socket;	
 	int length;
@@ -117,7 +115,6 @@ void print_client_message(int client_socket)
 	char buffer[5];
     int valor =analogRead(100+0);
 
-	
  	fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
 
 	read(client_socket, &length, sizeof (length));
@@ -144,22 +141,39 @@ void print_client_message(int client_socket)
 
 	if  (valor_menu == 1)
 	{
-		close(client_socket);
-        fprintf(stderr, "Cliente pediu para o servidor fechar.\n");
-        fprintf(stderr,"Estou chamando  a f sensores");
-        sensores(rx, n_socket);
+		quarto(client_socket);
 	}
+	if  (valor_menu == 2)
+	{
+		quarto(param_envio);
+	}
+	
      
         free(rx);
 } 
 
-void end_server(void)
+
+void quarto(int* client_socket)
 {
-	fprintf(stderr, "Fechando o socket local... ");
-	close(socket_id);
-	fprintf(stderr, "Feito!\n");
-	exit(0);
+	read(client_socket, &length, sizeof (length));
+	fprintf(stderr, "%d bytes.", length);
+	rx = (char*) malloc (length);
+	int valor = atoi(rx);
+
+	if (valor == 1)
+		tomadas(1);
+	if (valor == 2)
+		sensores(client_socket)
+		break;
 }
+
+
+
+
+
+
+
+
 
 void sensores(char* sensor,int n_socket)
 
@@ -187,15 +201,31 @@ void sensores(char* sensor,int n_socket)
 			rx = (char*) malloc (length);
             read(client_socket, rx, length);
 			valor_menu = atoi(rx);
-            fprintf(stderr,"o opação foi %d",valor_menu);
-            if (valor_menu == 1)
-				{
-					fprintf(stderr, "Cliente pediu para o servidor fechar.\n");
-                    fprintf(stderr, "estou em sensores. \n");
-					end_server();
-				}
+            fprintf(stderr,"o opção foi %d",valor_menu);
+
+    //         if (valor_menu == 1)
+				// {
+				// 	fprintf(stderr, "Cliente pediu para o servidor fechar.\n");
+    //                 fprintf(stderr, "estou em sensores. \n");
+				// 	end_server();
+				// }
 
 			
 			
 		}
+}
+
+void sigint_handler(int signum)
+{
+	fprintf(stderr, "\nRecebido o sinal CTRL+C... vamos desligar o servidor!\n");
+	end_server();
+}
+
+
+void end_server(void)
+{
+	fprintf(stderr, "Fechando o socket local... ");
+	close(socket_id);
+	fprintf(stderr, "Feito!\n");
+	exit(0);
 }
