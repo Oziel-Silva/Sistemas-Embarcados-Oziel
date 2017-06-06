@@ -1,0 +1,1 @@
+void sala(char *parametro);

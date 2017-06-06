@@ -1,0 +1,1 @@
+void temperatura(char* parametro);

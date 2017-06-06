@@ -1,0 +1,1 @@
+void quarto(char *parametro);
