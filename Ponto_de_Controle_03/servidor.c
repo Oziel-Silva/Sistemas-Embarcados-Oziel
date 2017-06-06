@@ -146,6 +146,10 @@ void menu(int client_socket)
 	{
 		temperatura(client_socket,1);
 	}
+	if (valor_menu == 3)
+	{
+		camera();
+	}
 	
      
 
