@@ -9,6 +9,8 @@
 #include <signal.h>
 #include <wiringPi.h>
 #include <mcp3004.h>
+#include "camera1.h"
+
 
 int socket_id;
 void sigint_handler(int signum);
@@ -23,7 +25,7 @@ int main (int argc, char* const argv[])
 	struct sockaddr_in servidorAddr;
     wiringPiSetup() ;
     mcp3004Setup(100, 0);
-
+    
 	if (argc < 2)
 	{
 		puts("   Este programa cria um servidor TCP/IP ");
@@ -114,8 +116,9 @@ void menu(int client_socket)
 	int length;
 	char* rx;
     char buffer_1[5];
-  
-
+    
+    
+    
  	fprintf(stderr, "\nMensagem enviada pelo cliente tem ");
 
 	read(client_socket, &length, sizeof (length));
