@@ -10,6 +10,7 @@
 #include "sala.h"
 #include "conect.h"
 #include "temperatura.h"
+#include "request_camera.h"
 void quarto(char *parametro)
 {
 	
@@ -23,6 +24,7 @@ void quarto(char *parametro)
         printf("\n\tEscolha uma funcionalidade\n\n");
         printf("1. Tomadas\n");
         printf("2. Temperatura do recinto\n");
+        printf("3. camera quarto\n");
         printf("0. Voltar ao menu anterior\n");
 
         scanf(" %c", &escolha);
@@ -39,7 +41,10 @@ void quarto(char *parametro)
             case '2':
             	param_envio = "1";
             	temperatura(param_envio);
-            	break; 
+            	break;
+            case '3':
+                param_envio = "3";
+                request_camera(param_envio); 
             case '0':
             	//param_envio = "1";
             	menu_principal();             

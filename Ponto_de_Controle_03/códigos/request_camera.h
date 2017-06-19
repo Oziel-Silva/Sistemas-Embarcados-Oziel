@@ -1,0 +1,1 @@
+void request_camera(char* parametro);
