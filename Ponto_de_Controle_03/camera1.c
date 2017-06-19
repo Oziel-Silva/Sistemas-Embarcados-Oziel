@@ -2,7 +2,7 @@
 #include<stdlib.h>
  void camera(void) {
 
-    system("fswebcam /var/www/html/test.jpg");
+    system("fswebcam /var/www/html/imagem.jpg");
     printf("FOTO!!");
 
 
