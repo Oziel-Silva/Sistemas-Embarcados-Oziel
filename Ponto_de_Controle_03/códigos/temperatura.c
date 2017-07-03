@@ -14,8 +14,8 @@
 void temperatura(char* parametro)
 {	char* text;
 	int length_rx, length;
-	int temp ;
-	int rx_temp;
+	float temp ;
+	float rx_temp;
 	int socket = conect();
 
 
@@ -29,9 +29,9 @@ void temperatura(char* parametro)
 
  	rx_temp = atoi(text);
 
- 	temp = (100 * rx_temp)/1024;
+ 	temp = (rx_temp*3.3/1023)/0.1;
 
-	fprintf(stderr,"\n\n   Temperatura do ambiente é de: %d °C\n\n", temp);
+	fprintf(stderr,"\n\n   Temperatura do ambiente é de: %2f °C\n\n", temp);
 	free (text);
 	sleep(2);
 	system("clear");
